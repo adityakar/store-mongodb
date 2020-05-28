@@ -2,7 +2,7 @@
 steps:
 # This step deploys the container image.
 - name: 'gcr.io/cloud-builders/kubectl'
-  id: Deploy
+  id: Deploy App
   args:
   - 'apply'
   - '-f'
@@ -12,7 +12,7 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=sample-store-cluster'
 # This step deploys the service.
 - name: 'gcr.io/cloud-builders/kubectl'
-  id: Deploy
+  id: Deploy Service
   args:
   - 'apply'
   - '-f'

@@ -1,10 +1,11 @@
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: prom-rbac1
+  name: prom-rbac
 subjects:
 - kind: ServiceAccount
   name: default
+  namespace: default
 roleRef:
   kind: ClusterRole
   name: prom-admin

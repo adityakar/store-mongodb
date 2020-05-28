@@ -18,6 +18,6 @@ steps:
   - '-f'
   - 'kubernetes-service.yaml'
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=sample-store-cluster'
 # [END cloudbuild]

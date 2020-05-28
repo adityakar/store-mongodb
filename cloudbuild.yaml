@@ -8,7 +8,7 @@ steps:
   - '-f'
   - 'kubernetes-deployment.yaml'
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=sample-store-cluster'
 # This step deploys the service.
 - name: 'gcr.io/cloud-builders/kubectl'

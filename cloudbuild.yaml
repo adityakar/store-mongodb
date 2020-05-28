@@ -1,5 +1,25 @@
 # [START cloudbuild]
 steps:
+# This step creates a role.
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Create Role
+  args:
+  - 'apply'
+  - '-f'
+  - 'role.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=sample-store-cluster'
+# This step creates binds role.
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Apply Role
+  args:
+  - 'apply'
+  - '-f'
+  - 'applyRole.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=sample-store-cluster'
 # This step deploys the container image.
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy App

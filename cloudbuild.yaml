@@ -8,8 +8,8 @@ steps:
   - '-f'
   - 'role.yaml'
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=primary'
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=secondary'
 # This step creates binds role.
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Apply Role
@@ -18,18 +18,8 @@ steps:
   - '-f'
   - 'applyRole.yaml'
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=primary'
-# This step deploys the container image.
-- name: 'gcr.io/cloud-builders/kubectl'
-  id: Deploy App
-  args:
-  - 'apply'
-  - '-f'
-  - 'kubernetes-deployment.yaml'
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=primary'
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=secondary'
 # This step deploys the service.
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy Service
@@ -38,16 +28,6 @@ steps:
   - '-f'
   - 'kubernetes-service.yaml'
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=primary'
-  # This step deploys the service.
-- name: 'gcr.io/cloud-builders/kubectl'
-  id: Deploy Virtual Service
-  args:
-  - 'apply'
-  - '-f'
-  - 'mongo-virtualservice.yaml'
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=primary'
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=secondary'
 # [END cloudbuild]

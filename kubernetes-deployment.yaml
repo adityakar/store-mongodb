@@ -12,11 +12,13 @@ metadata:
  name: nodejs-store-mongodb
  labels:
    app: nodejs-store
+   replicaset: rs0
    tier: db
 spec:
  selector:
    matchLabels:
      app: nodejs-store
+     replicaset: rs0
      tier: db
  serviceName: "nodejs-store-mongodb"
  replicas: 2
@@ -25,6 +27,7 @@ spec:
      labels:
        tier: db
        app: nodejs-store
+       replicaset: rs0
        cluster-type: primary-cluster
    spec:
      terminationGracePeriodSeconds: 10
@@ -57,7 +60,7 @@ spec:
          image: cvallance/mongo-k8s-sidecar
          env:
            - name: MONGO_SIDECAR_POD_LABELS
-             value: "app=nodejs-store,tier=db"
+             value: "replicaset=rs0,tier=db"
  volumeClaimTemplates:
  - metadata:
      name: mongo-persistent-storage

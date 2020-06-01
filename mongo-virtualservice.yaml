@@ -13,7 +13,7 @@ spec:
        host: nodejs-store-mongodb.default.svc.cluster.local
        port:
          number: 27017
-       weight: 30
+     weight: 30
    - destination:
        host: nodejs-store-mongodb.default.svc.cluster.local
        subset: secondary

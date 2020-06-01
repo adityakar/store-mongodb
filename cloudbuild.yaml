@@ -30,4 +30,14 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-b'
   - 'CLOUDSDK_CONTAINER_CLUSTER=secondary'
+  # This step deploys the service.
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Deploy Virtual Service
+  args:
+  - 'apply'
+  - '-f'
+  - 'mongo-virtualservice.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=secondary'
 # [END cloudbuild]

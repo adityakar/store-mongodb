@@ -25,6 +25,7 @@ spec:
      labels:
        tier: db
        app: nodejs-store
+       cluster-type: secondary-cluster
    spec:
      terminationGracePeriodSeconds: 10
      containers:

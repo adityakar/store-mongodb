@@ -20,6 +20,16 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-b'
   - 'CLOUDSDK_CONTAINER_CLUSTER=secondary'
+# This step deploys the container image.
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Deploy App
+  args:
+  - 'apply'
+  - '-f'
+  - 'kubernetes-deployment.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=secondary'
 # This step deploys the service.
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy Service

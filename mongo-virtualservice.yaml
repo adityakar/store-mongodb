@@ -13,13 +13,13 @@ spec:
        host: nodejs-store-mongodb.default.svc.cluster.local
        port:
          number: 27017
-     weight: 0
+     weight: 100
    - destination:
        host: nodejs-store-mongodb.default.svc.cluster.local
        subset: secondary
        port:
          number: 27017
-     weight: 100
+     weight: 0
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule

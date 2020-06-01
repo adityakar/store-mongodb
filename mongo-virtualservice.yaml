@@ -18,7 +18,7 @@ spec:
        host: nodejs-store-mongodb.default.svc.cluster.local
        subset: secondary
        port:
-         number: 8080
+         number: 27017
      weight: 70
 ---
 apiVersion: networking.istio.io/v1alpha3

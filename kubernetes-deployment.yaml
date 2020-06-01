@@ -21,7 +21,7 @@ spec:
      replicaset: rs0
      tier: db
  serviceName: "nodejs-store-mongodb"
- replicas: 2
+ replicas: 1
  template:
    metadata:
      labels:

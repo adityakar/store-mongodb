@@ -9,14 +9,14 @@ parameters:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
- name: nodejs-store-mongodb
+ name: nodejs-store-mongodb-secondary
  labels:
-   app: nodejs-store
+   app: nodejs-store-secondary
    tier: db
 spec:
  selector:
    matchLabels:
-     app: nodejs-store
+     app: nodejs-store-secondary
      tier: db
  serviceName: "nodejs-store-mongodb"
  replicas: 2
@@ -24,7 +24,7 @@ spec:
    metadata:
      labels:
        tier: db
-       app: nodejs-store
+       app: nodejs-store-secondary
        cluster-type: secondary-cluster
    spec:
      terminationGracePeriodSeconds: 10
@@ -57,7 +57,7 @@ spec:
          image: cvallance/mongo-k8s-sidecar
          env:
            - name: MONGO_SIDECAR_POD_LABELS
-             value: "app=nodejs-store,tier=db"
+             value: "app=nodejs-store-secondary,tier=db"
  volumeClaimTemplates:
  - metadata:
      name: mongo-persistent-storage

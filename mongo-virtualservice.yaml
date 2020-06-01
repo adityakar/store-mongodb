@@ -4,7 +4,7 @@ metadata:
  name: mongo-virtual-service
 spec:
  hosts:
- - nodejs-store-mongodb
+ - nodejs-store-mongodb-secondary
  gateways:
  - mesh
  tcp:
@@ -26,7 +26,7 @@ kind: DestinationRule
 metadata:
   name: mongodb-destination-rule
 spec:
-  host: nodejs-store-mongodb
+  host: nodejs-store-mongodb-secondary
   trafficPolicy:
     loadBalancer:
       simple: RANDOM

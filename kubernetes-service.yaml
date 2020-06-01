@@ -2,9 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: nodejs-store
+    app: nodejs-store-secondary
     tier: db
-  name: nodejs-store-mongodb
+  name: nodejs-store-mongodb-secondary
 spec:
   ports:
    - name: mongo-port
@@ -12,5 +12,5 @@ spec:
      targetPort: 27017
   clusterIP: None
   selector:
-    app: nodejs-store
+    app: nodejs-store-secondary
     tier: db
